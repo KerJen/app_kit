@@ -20,3 +20,7 @@ export 'behaviors/bouncing_scroll_behavior.dart';
 export 'helpers/popup_helper.dart';
 export 'helpers/sheet_helper.dart';
 export 'helpers/num_helper.dart';
+
+// Structures
+export 'structures/cycle_list.dart';
+export 'structures/pair.dart';
