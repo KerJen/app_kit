@@ -33,22 +33,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(
-        title: "Hello",
+      appBar: AppAppBar(
         centerTitle: true,
-        leading: Icon(Icons.arrow_back),
-        titleStyle: TextStyle(fontSize: 26),
-        trailing: Icon(Icons.abc),
-        onLeadingTap: () {
-          print(4);
-        },
-        onTrailingTap: () {
-          print(3);
-        },
-      ),
-      body: const Center(
-        child: Text(
-          "Test",
+        title: Text(
+          "ggg",
         ),
       ),
     );
