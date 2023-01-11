@@ -4,45 +4,47 @@ import 'gesture_detector.dart';
 
 AppBar appBar({
   required String title,
+  Color? backgroundColor,
   bool centerTitle = false,
-  bool showLeading = true,
   TextStyle titleStyle = const TextStyle(color: Colors.black, fontSize: 14),
   Widget? leading,
-  double leadingSize = 36,
+  double buttonHeight = 36,
+  double buttonWidth = 60,
   Widget? trailing,
-  EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-  IconThemeData iconThemeData = const IconThemeData(color: Colors.black),
-  Function()? onBackTap,
+  EdgeInsets padding = const EdgeInsets.only(left: 24, top: 12, bottom: 12),
+  IconThemeData iconTheme = const IconThemeData(color: Colors.black),
+  Function()? onLeadingTap,
   Function()? onTrailingTap,
 }) {
   return AppBar(
-    toolbarHeight: leadingSize + padding.bottom + padding.top,
-    leadingWidth: leadingSize + 24,
-    automaticallyImplyLeading: showLeading,
-    leading: showLeading
-        ? Padding(
-            padding: const EdgeInsets.only(top: 16, bottom: 8, left: 24),
-            child: SizedBox(
-              height: leadingSize,
-              width: leadingSize,
+    toolbarHeight: buttonHeight + padding.bottom + padding.top,
+    leadingWidth: buttonWidth + padding.left,
+    automaticallyImplyLeading: leading != null,
+    leading: leading != null
+        ? Container(
+            margin: EdgeInsets.only(left: padding.left),
+            width: buttonWidth,
+            child: AppGestureDetector(
+              onTap: onLeadingTap,
               child: leading,
             ),
           )
         : null,
     title: Text(title, style: titleStyle),
     centerTitle: centerTitle,
-    actionsIconTheme: iconThemeData,
+    actionsIconTheme: iconTheme,
     actions: [
       if (trailing != null)
         AppGestureDetector(
           onTap: onTrailingTap ?? () {},
           child: Container(
-            padding: const EdgeInsets.only(top: 16, bottom: 8, left: 24, right: 24),
+            margin: EdgeInsets.only(right: padding.right),
+            width: buttonWidth,
             alignment: Alignment.center,
             child: trailing,
           ),
         ),
     ],
-    backgroundColor: Colors.transparent,
+    backgroundColor: backgroundColor,
   );
 }
