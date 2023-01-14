@@ -5,7 +5,7 @@ import 'gesture_detector.dart';
 class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final Color? backgroundColor;
-  final bool centerTitle;
+  final bool? centerTitle;
   final TextStyle titleStyle;
   final Widget? leading;
   final double buttonHeight;
@@ -20,7 +20,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.title,
     this.backgroundColor,
-    this.centerTitle = false,
+    this.centerTitle,
     this.titleStyle = const TextStyle(color: Colors.black, fontSize: 14),
     this.leading,
     this.buttonHeight = 36,
@@ -52,7 +52,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
             )
           : null,
       title: title,
-      centerTitle: centerTitle,
+      centerTitle: centerTitle ?? Theme.of(context).appBarTheme.centerTitle,
       actionsIconTheme: iconTheme ?? Theme.of(context).iconTheme,
       actions: [
         if (trailing != null)
@@ -66,7 +66,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
       ],
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
     );
   }
 }
