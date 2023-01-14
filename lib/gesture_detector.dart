@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 class AppGestureDetector extends StatelessWidget {
   final Function()? onTap;
   final Function(TapDownDetails)? onTapDown;
+  final HitTestBehavior behavior;
+  final EdgeInsets padding;
   final bool hasFeedback;
   final Widget child;
 
@@ -11,6 +13,8 @@ class AppGestureDetector extends StatelessWidget {
     Key? key,
     this.onTap,
     this.onTapDown,
+    this.behavior = HitTestBehavior.translucent,
+    this.padding = EdgeInsets.zero,
     this.hasFeedback = false,
     required this.child,
   }) : super(key: key);
@@ -18,7 +22,7 @@ class AppGestureDetector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      behavior: HitTestBehavior.translucent,
+      behavior: behavior,
       onTap: onTap != null
           ? () {
               onTap!();
@@ -26,7 +30,10 @@ class AppGestureDetector extends StatelessWidget {
             }
           : null,
       onTapDown: onTapDown,
-      child: child,
+      child: Padding(
+        padding: padding,
+        child: child,
+      ),
     );
   }
 }
