@@ -1,7 +1,7 @@
+import 'package:app_kit/arch/error/exception.dart';
 import 'package:dio/dio.dart';
 import 'package:http_status_code/http_status_code.dart';
 import 'package:tech_stack/core/const.dart';
-import 'package:tech_stack/core/error/exception.dart';
 import 'package:tech_stack/data/weather/model/weather.dart';
 import 'package:tech_stack/data/weather/model/city.dart';
 import 'package:tech_stack/data/weather/source/weather_remote_source/weather_remote_source.dart';

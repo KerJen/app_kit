@@ -1,5 +1,5 @@
+import 'package:app_kit/arch/error/failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:tech_stack/core/error/failure.dart';
 import 'package:tech_stack/domain/weather/entity/weather_entity.dart';
 
 abstract class WeatherRepository {

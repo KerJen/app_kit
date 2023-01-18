@@ -1,8 +1,6 @@
+import 'package:app_kit/arch/error/failure.dart';
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
-import 'package:tech_stack/core/error/failure.dart';
 import 'package:tech_stack/domain/weather/entity/weather_entity.dart';
 import 'package:tech_stack/domain/weather/usecase/get_weathers_usecase.dart';
 

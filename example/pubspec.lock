@@ -20,7 +20,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: fdd4544139107fcfce2e26e63b7498d8c06f7de6
+      resolved-ref: "6e0a85a5f9f774cdaef0b833321100a7c2238f78"
       url: "https://github.com/KerJen/app_kit.git"
     source: git
     version: "0.0.1"

@@ -1,11 +1,11 @@
 import 'dart:convert';
 
+import 'package:app_kit/arch/error/exception.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_status_code/http_status_code.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tech_stack/core/const.dart';
-import 'package:tech_stack/core/error/exception.dart';
 import 'package:tech_stack/data/weather/source/weather_remote_source/weather_remote_source.dart';
 import 'package:tech_stack/data/weather/source/weather_remote_source/weather_remote_source_impl.dart';
 

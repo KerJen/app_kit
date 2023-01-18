@@ -5,9 +5,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
+import 'package:app_kit/arch/error/failure.dart' as _i5;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:tech_stack/core/error/failure.dart' as _i5;
 import 'package:tech_stack/domain/weather/entity/weather_entity.dart' as _i6;
 import 'package:tech_stack/domain/weather/repository/weather_repository.dart'
     as _i3;
