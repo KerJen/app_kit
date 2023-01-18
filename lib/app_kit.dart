@@ -1,5 +1,14 @@
 library app_kit;
 
+// Core
+export 'arch/error/exception.dart';
+export 'arch/error/failure.dart';
+export 'arch/usecase/usecase.dart';
+
+// Structures
+export 'structures/cycle_list.dart';
+export 'structures/pair.dart';
+
 // Animations
 export 'animations/no_scaling_animator.dart';
 export 'app_bar.dart';
@@ -17,6 +26,3 @@ export 'helpers/num_helper.dart';
 export 'helpers/popup_helper.dart';
 export 'helpers/sheet_helper.dart';
 export 'row.dart';
-// Structures
-export 'structures/cycle_list.dart';
-export 'structures/pair.dart';
