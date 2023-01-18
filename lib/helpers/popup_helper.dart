@@ -1,4 +1,4 @@
-import 'package:app_kit/gesture_detector.dart';
+import '../gesture_detector.dart';
 import 'package:flutter/material.dart';
 
 Future<T?> showPopup<T>(

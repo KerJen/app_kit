@@ -6,13 +6,14 @@ part of 'city.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_City _$$_CityFromJson(Map<String, dynamic> json) => _$_City(
+_$_CityModel _$$_CityModelFromJson(Map<String, dynamic> json) => _$_CityModel(
       name: json['name'] as String,
       lat: (json['lat'] as num).toDouble(),
       lon: (json['lon'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$_CityToJson(_$_City instance) => <String, dynamic>{
+Map<String, dynamic> _$$_CityModelToJson(_$_CityModel instance) =>
+    <String, dynamic>{
       'name': instance.name,
       'lat': instance.lat,
       'lon': instance.lon,
