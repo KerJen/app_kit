@@ -1,7 +1,5 @@
 include: package:flutter_lints/flutter.yaml
 
-linter:
-  rules:
 
 analyzer:
   exclude:
@@ -10,3 +8,33 @@ analyzer:
   errors:
     invalid_annotation_target: ignore
 
+linter:
+  rules:
+    # Important
+    require_trailing_commas: true
+    prefer_relative_imports: true
+    prefer_double_quotes: true
+
+    # Recommendations
+    cancel_subscriptions: true
+    close_sinks: true
+    discarded_futures: true
+    iterable_contains_unrelated_type: true
+    list_remove_unrelated_type: true
+    no_adjacent_strings_in_list: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    prefer_if_elements_to_conditional_expressions: true
+    prefer_int_literals: true
+    always_put_control_body_on_new_line: true
+    always_specify_types: false
+    avoid_catches_without_on_clauses: true
+    avoid_final_parameters: true
+    use_super_parameters: true
+    provide_deprecation_message: true
+    only_throw_errors: true
+
+    # UI
+    sized_box_for_whitespace: true
+    
+   

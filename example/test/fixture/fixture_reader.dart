@@ -1,4 +1,4 @@
-import 'dart:io';
+import "dart:io";
 
 const fixtureReader = FixtureReader(basePath: "test/fixture");
 
@@ -7,5 +7,5 @@ class FixtureReader {
 
   const FixtureReader({required this.basePath});
 
-  String read(String name) => File('$basePath/$name').readAsStringSync();
+  String read(String name) => File("$basePath/$name").readAsStringSync();
 }

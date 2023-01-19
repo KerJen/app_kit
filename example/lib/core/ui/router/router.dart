@@ -1,10 +1,10 @@
-import 'package:auto_route/annotations.dart';
-import 'package:tech_stack/view/info/info_screen.dart';
+import "package:auto_route/annotations.dart";
+import "../../../view/info/info_screen.dart";
 
-import '../../../view/weather/weather_screen.dart';
+import "../../../view/weather/weather_screen.dart";
 
 @AdaptiveAutoRouter(
-  replaceInRouteName: 'Screen,Route',
+  replaceInRouteName: "Screen,Route",
   routes: <AutoRoute>[
     AutoRoute(page: WeatherScreen, initial: true, path: "/"),
     AutoRoute(page: InfoScreen, path: "/info"),

@@ -1,16 +1,16 @@
-import 'package:app_kit/app_bar.dart';
-import 'package:app_kit/empty_widget.dart';
-import 'package:app_kit/structures/pair.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
-import 'package:tech_stack/core/ui/style/colors.dart';
-import 'package:tech_stack/core/ui/style/text_styles.dart';
-import 'package:app_kit/extensions.dart';
-import 'package:tech_stack/domain/weather/entity/weather_entity.dart';
-import 'package:tech_stack/domain/weather/usecase/get_weathers_usecase.dart';
-import 'package:tech_stack/view/weather/bloc/weather_bloc.dart';
+import "package:app_kit/app_bar.dart";
+import "package:app_kit/empty_widget.dart";
+import "package:auto_route/auto_route.dart";
+import "package:flutter/material.dart";
+import 'package:flutter/services.dart';
+import "package:flutter_bloc/flutter_bloc.dart";
+import "package:get_it/get_it.dart";
+import "../../core/ui/style/colors.dart";
+import "../../core/ui/style/text_styles.dart";
+import "package:app_kit/extensions.dart";
+import "../../domain/weather/entity/weather_entity.dart";
+import "../../domain/weather/usecase/get_weathers_usecase.dart";
+import "bloc/weather_bloc.dart";
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -45,8 +45,16 @@ class WeatherScreen extends StatelessWidget {
           trailing: const Icon(
             Icons.info_outline_rounded,
           ),
-          onTrailingTap: () {
-            context.router.pushNamed("/info");
+          onTrailingTap: () async {
+           
+              const channel = MethodChannel("batteryChannel");
+
+              final t = await channel.invokeMethod("getBatteryPercentage");
+
+              print(t);
+            
+
+            // await context.router.pushNamed("/info");
           },
         ),
         body: BlocBuilder<WeatherBloc, WeatherState>(

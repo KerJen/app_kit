@@ -1,5 +1,5 @@
-import 'package:tech_stack/data/weather/model/city.dart';
-import 'package:tech_stack/data/weather/model/weather.dart';
+import "../../model/city.dart";
+import "../../model/weather.dart";
 
 abstract class WeatherRemoteSource {
   Future<CityModel> getCityByName(String name);

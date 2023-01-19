@@ -1,5 +1,5 @@
-import 'package:app_kit/arch/error/failure.dart';
-import 'package:equatable/equatable.dart';
+import "package:app_kit/arch/error/failure.dart";
+import "package:equatable/equatable.dart";
 
 class WeatherEntity extends Equatable {
   final String cityName;

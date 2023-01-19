@@ -1,10 +1,9 @@
-import 'dart:convert';
+import "dart:convert";
 
-import 'package:flutter_test/flutter_test.dart';
-import 'package:tech_stack/data/weather/model/city.dart';
-import 'package:tech_stack/data/weather/model/weather.dart';
+import "package:flutter_test/flutter_test.dart";
+import "package:tech_stack/data/weather/model/weather.dart";
 
-import '../../../fixture/fixture_reader.dart';
+import "../../../fixture/fixture_reader.dart";
 
 const fixtureReader = FixtureReader(basePath: "test/fixture");
 const testLondonWeatherModel = WeatherModel(
@@ -25,9 +24,8 @@ const testMoscowWeatherModel = WeatherModel(
   humidity: 64,
 );
 
-
 void main() {
-  test('should return valid model object by fromJson', () async {
+  test("should return valid model object by fromJson", () async {
     //Arrange
     final jsonMap = jsonDecode(fixtureReader.read("weather_model.json"));
 

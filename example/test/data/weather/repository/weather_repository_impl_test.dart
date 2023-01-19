@@ -1,17 +1,17 @@
-import 'package:app_kit/arch/error/exception.dart';
-import 'package:app_kit/arch/error/failure.dart';
-import 'package:dartz/dartz.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
-import 'package:tech_stack/data/weather/repository/weather_repository_impl.dart';
-import 'package:tech_stack/data/weather/source/weather_remote_source/weather_remote_source.dart';
-import 'package:tech_stack/domain/weather/entity/weather_entity.dart';
-import 'package:tech_stack/domain/weather/repository/weather_repository.dart';
+import "package:app_kit/arch/error/exception.dart";
+import "package:app_kit/arch/error/failure.dart";
+import "package:dartz/dartz.dart";
+import "package:flutter_test/flutter_test.dart";
+import "package:mockito/mockito.dart";
+import "package:tech_stack/data/weather/repository/weather_repository_impl.dart";
+import "package:tech_stack/data/weather/source/weather_remote_source/weather_remote_source.dart";
+import "package:tech_stack/domain/weather/entity/weather_entity.dart";
+import "package:tech_stack/domain/weather/repository/weather_repository.dart";
 
-import '../../../domain/weather/usecase/get_cities_weather_usecase_test.dart';
-import '../../../mocks/source/source_mocks.mocks.dart';
-import '../model/city_model_test.dart';
-import '../model/weather_model_test.dart';
+import "../../../domain/weather/usecase/get_cities_weather_usecase_test.dart";
+import "../../../mocks/source/source_mocks.mocks.dart";
+import "../model/city_model_test.dart";
+import "../model/weather_model_test.dart";
 
 void main() {
   late WeatherRemoteSource mockSource;
@@ -23,7 +23,7 @@ void main() {
   });
 
   group("gewWeathers", () {
-    setUp(() {
+    setUp(() async {
       when(mockSource.getCityByName(testLondonEntity.cityName)).thenAnswer((_) async => testLondonModel);
       when(mockSource.getCityByName(testMoscowEntity.cityName)).thenAnswer((_) async => testMoscowModel);
       when(mockSource.getWeatherByCoords(lat: testLondonModel.lat, lon: testLondonModel.lon))
@@ -32,7 +32,7 @@ void main() {
           .thenAnswer((_) async => testMoscowWeatherModel);
     });
 
-    test('should return a weather list with one entity', () async {
+    test("should return a weather list with one entity", () async {
       //Act
       final result =
           ((await repository.getWeathers([testLondonEntity.cityName])) as Right<Failure, List<WeatherEntity>>).value;
@@ -44,7 +44,7 @@ void main() {
       verifyNoMoreInteractions(mockSource);
     });
 
-    test('should return a weather list', () async {
+    test("should return a weather list", () async {
       //Act
       final result =
           ((await repository.getWeathers([testLondonEntity, testMoscowEntity].map((e) => e.cityName).toList()))
@@ -62,9 +62,10 @@ void main() {
   });
 
 
+
   //TODO: Implement parametrized tests
   group("ConnectionException", () {
-    test('should return ConnectionFailure if getCityByName throwed ConnectionException', () async {
+    test("should return ConnectionFailure if getCityByName throwed ConnectionException", () async {
       //Arrange
       when(mockSource.getCityByName("London")).thenThrow(ConnectionException());
 
@@ -77,7 +78,7 @@ void main() {
       verifyNoMoreInteractions(mockSource);
     });
 
-    test('should return ConnectionFailure if getWeatherByCoords throwed ConnectionException', () async {
+    test("should return ConnectionFailure if getWeatherByCoords throwed ConnectionException", () async {
       //Arrange
       when(mockSource.getCityByName(testLondonEntity.cityName)).thenAnswer((_) async => testLondonModel);
       when(mockSource.getWeatherByCoords(lat: testLondonModel.lat, lon: testLondonModel.lon))
@@ -94,7 +95,7 @@ void main() {
     });
   });
 
-  test('should return CityNotFoundFailure if getCityByName throwed NotFoundException', () async {
+  test("should return CityNotFoundFailure if getCityByName throwed NotFoundException", () async {
     //Arrange
     when(mockSource.getCityByName("Zerzura")).thenThrow(NotFoundException());
 
@@ -107,7 +108,7 @@ void main() {
     verifyNoMoreInteractions(mockSource);
   });
 
-  test('should return WrongCoordsFailure if getWeatherByCoords throwed WrongFormatException', () async {
+  test("should return WrongCoordsFailure if getWeatherByCoords throwed WrongFormatException", () async {
     //Arrange
     when(mockSource.getCityByName(testLondonEntity.cityName)).thenAnswer((_) async => testLondonModel);
     when(mockSource.getWeatherByCoords(lat: testLondonModel.lat, lon: testLondonModel.lon))
@@ -124,7 +125,7 @@ void main() {
   });
 
   group("UnknownException", () {
-    test('should return UnknownFailure if getCityByName throwed UnknownException', () async {
+    test("should return UnknownFailure if getCityByName throwed UnknownException", () async {
       //Arrange
       when(mockSource.getCityByName(testLondonEntity.cityName)).thenThrow(UnknownException());
 
@@ -137,7 +138,7 @@ void main() {
       verifyNoMoreInteractions(mockSource);
     });
 
-    test('should return UnknownFailure if getWeatherByCoords throwed UnknownException', () async {
+    test("should return UnknownFailure if getWeatherByCoords throwed UnknownException", () async {
       //Arrange
       when(mockSource.getCityByName(testLondonEntity.cityName)).thenAnswer((_) async => testLondonModel);
       when(mockSource.getWeatherByCoords(lat: testLondonModel.lat, lon: testLondonModel.lon))
@@ -155,7 +156,7 @@ void main() {
   });
 
   group("UnauthorizedException", () {
-    test('should return UnauthorizedFailure if getCityByName throwed UnauthorizedException', () async {
+    test("should return UnauthorizedFailure if getCityByName throwed UnauthorizedException", () async {
       //Arrange
       when(mockSource.getCityByName(testLondonEntity.cityName)).thenThrow(UnauthorizedException());
 
@@ -168,7 +169,7 @@ void main() {
       verifyNoMoreInteractions(mockSource);
     });
 
-    test('should return UnauthorizedFailure if getWeatherByCoords throwed UnauthorizedException', () async {
+    test("should return UnauthorizedFailure if getWeatherByCoords throwed UnauthorizedException", () async {
       //Arrange
       when(mockSource.getCityByName(testLondonEntity.cityName)).thenAnswer((_) async => testLondonModel);
       when(mockSource.getWeatherByCoords(lat: testLondonModel.lat, lon: testLondonModel.lon))

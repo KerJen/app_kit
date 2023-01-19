@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:tech_stack/core/ui/style/colors.dart';
+import "package:flutter/material.dart";
+import "colors.dart";
 
 TextStyle custom({
   required double fontSize,

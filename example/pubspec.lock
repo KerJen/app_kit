@@ -20,7 +20,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "6e0a85a5f9f774cdaef0b833321100a7c2238f78"
+      resolved-ref: "4ca22eff143a42062233e8b9333ad8b26443d00c"
       url: "https://github.com/KerJen/app_kit.git"
     source: git
     version: "0.0.1"
@@ -382,6 +382,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.5.4"
+  lint:
+    dependency: "direct dev"
+    description:
+      name: lint
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   lints:
     dependency: transitive
     description:

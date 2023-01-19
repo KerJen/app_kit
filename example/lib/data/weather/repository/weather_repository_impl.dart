@@ -1,8 +1,8 @@
-import 'package:app_kit/app_kit.dart';
-import 'package:dartz/dartz.dart';
-import 'package:tech_stack/data/weather/source/weather_remote_source/weather_remote_source.dart';
-import '../../../domain/weather/entity/weather_entity.dart';
-import '../../../domain/weather/repository/weather_repository.dart';
+import "package:app_kit/app_kit.dart";
+import "package:dartz/dartz.dart";
+import "../source/weather_remote_source/weather_remote_source.dart";
+import "../../../domain/weather/entity/weather_entity.dart";
+import "../../../domain/weather/repository/weather_repository.dart";
 
 class WeatherRepositoryImpl extends WeatherRepository {
   final WeatherRemoteSource remoteSource;

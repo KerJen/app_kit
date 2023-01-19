@@ -1,12 +1,12 @@
-import 'package:app_kit/arch/error/failure.dart';
-import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tech_stack/domain/weather/entity/weather_entity.dart';
-import 'package:tech_stack/domain/weather/usecase/get_weathers_usecase.dart';
+import "package:app_kit/arch/error/failure.dart";
+import "package:bloc/bloc.dart";
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../../../domain/weather/entity/weather_entity.dart";
+import "../../../domain/weather/usecase/get_weathers_usecase.dart";
 
-part 'weather_event.dart';
-part 'weather_state.dart';
-part 'weather_bloc.freezed.dart';
+part "weather_event.dart";
+part "weather_state.dart";
+part "weather_bloc.freezed.dart";
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   final GetWeathersUseCase getWeathers;

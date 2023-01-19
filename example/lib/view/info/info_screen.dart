@@ -1,9 +1,9 @@
-import 'package:app_kit/app_kit.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:tech_stack/core/ui/style/colors.dart';
-import 'package:tech_stack/core/ui/style/text_styles.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import "package:app_kit/app_kit.dart";
+import "package:auto_route/auto_route.dart";
+import "package:flutter/material.dart";
+import "../../core/ui/style/colors.dart";
+import "../../core/ui/style/text_styles.dart";
+import "package:url_launcher/url_launcher_string.dart";
 
 class InfoScreen extends StatelessWidget {
   const InfoScreen({super.key});
@@ -19,8 +19,8 @@ class InfoScreen extends StatelessWidget {
         leading: const Icon(
           Icons.arrow_back,
         ),
-        onLeadingTap: () {
-          context.router.pop();
+        onLeadingTap: () async {
+          await context.router.pop();
         },
       ),
       body: Center(
@@ -34,8 +34,8 @@ class InfoScreen extends StatelessWidget {
             ),
             AppGestureDetector(
               padding: const EdgeInsets.all(12),
-              onTap: () {
-                launchUrlString("t.me/kerjen");
+              onTap: () async {
+                await launchUrlString("t.me/kerjen");
               },
               child: const Icon(
                 Icons.telegram,
