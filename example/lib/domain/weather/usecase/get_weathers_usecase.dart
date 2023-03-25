@@ -1,10 +1,12 @@
-import "package:app_kit/arch/error/failure.dart";
-import "package:app_kit/arch/usecase/usecase.dart";
-import "package:dartz/dartz.dart";
-import "../repository/weather_repository.dart";
+import 'package:app_kit/arch/error/failure.dart';
+import 'package:app_kit/arch/usecase/usecase.dart';
+import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
+import '../repository/weather_repository.dart';
 
-import "../entity/weather_entity.dart";
+import '../entity/weather_entity.dart';
 
+@injectable
 class GetWeathersUseCase extends UseCase<List<WeatherEntity>, List<String>> {
   final WeatherRepository repository;
 

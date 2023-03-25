@@ -1,18 +1,18 @@
-import "package:app_kit/arch/usecase/usecase.dart";
-import "package:dartz/dartz.dart";
-import "package:flutter_test/flutter_test.dart";
-import "package:mockito/mockito.dart";
-import "package:tech_stack/domain/weather/entity/weather_entity.dart";
-import "package:tech_stack/domain/weather/repository/weather_repository.dart";
-import "package:tech_stack/domain/weather/usecase/get_weathers_usecase.dart";
+import 'package:app_kit/arch/usecase/usecase.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
+import 'package:tech_stack/domain/weather/entity/weather_entity.dart';
+import 'package:tech_stack/domain/weather/repository/weather_repository.dart';
+import 'package:tech_stack/domain/weather/usecase/get_weathers_usecase.dart';
 
-import "../../../mocks/repository/repository_mocks.mocks.dart";
+import '../../../mocks/repository/repository_mocks.mocks.dart';
 
-const testCities = ["London", "Moscow"];
+const testCities = ['London', 'Moscow'];
 
 const testLondonEntity = WeatherEntity(
-  cityName: "London",
-  description: "moderate rain",
+  cityName: 'London',
+  description: 'moderate rain',
   temp: 298.48,
   minTemp: 297.56,
   maxTemp: 300.05,
@@ -20,8 +20,8 @@ const testLondonEntity = WeatherEntity(
 );
 
 const testMoscowEntity = WeatherEntity(
-  cityName: "Moscow",
-  description: "sunny",
+  cityName: 'Moscow',
+  description: 'sunny',
   temp: 398.48,
   minTemp: 197.56,
   maxTemp: 300.05,
@@ -37,7 +37,7 @@ void main() {
     useCase = GetWeathersUseCase(mockRepository);
   });
 
-  test("should get weather from weather repository", () async {
+  test('should get weather from weather repository', () async {
     //Arrange
     when(mockRepository.getWeathers(testCities))
         .thenAnswer((_) async => const Right([testLondonEntity, testMoscowEntity]));

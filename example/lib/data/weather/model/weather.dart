@@ -1,7 +1,7 @@
-import "package:freezed_annotation/freezed_annotation.dart";
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-part "weather.freezed.dart";
-part "weather.g.dart";
+part 'weather.freezed.dart';
+part 'weather.g.dart';
 
 @freezed
 class WeatherModel with _$WeatherModel {
@@ -15,27 +15,27 @@ class WeatherModel with _$WeatherModel {
   }) = _WeatherModel;
 
   static String readStatus(Map<dynamic, dynamic> map, _) {
-    return (map["weather"] as List).first["main"];
+    return (map['weather'] as List).first['main'];
   }
 
   static String readDescription(Map<dynamic, dynamic> map, _) {
-    return (map["weather"] as List).first["description"];
+    return (map['weather'] as List).first['description'];
   }
 
   static num readMinTemp(Map<dynamic, dynamic> map, _) {
-    return map["main"]["temp_min"];
+    return map['main']['temp_min'];
   }
 
   static num readMaxTemp(Map<dynamic, dynamic> map, _) {
-    return map["main"]["temp_max"];
+    return map['main']['temp_max'];
   }
 
   static num readTemp(Map<dynamic, dynamic> map, _) {
-    return map["main"]["temp"];
+    return map['main']['temp'];
   }
 
   static int readHumidity(Map<dynamic, dynamic> map, _) {
-    return map["main"]["humidity"];
+    return map['main']['humidity'];
   }
 
   factory WeatherModel.fromJson(Map<String, Object?> json) => _$WeatherModelFromJson(json);

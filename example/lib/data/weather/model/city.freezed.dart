@@ -20,7 +20,7 @@ CityModel _$CityModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CityModel {
-  @JsonKey(name: "name")
+  @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
   double get lat => throw _privateConstructorUsedError;
   double get lon => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $CityModelCopyWith<$Res> {
   factory $CityModelCopyWith(CityModel value, $Res Function(CityModel) then) =
       _$CityModelCopyWithImpl<$Res, CityModel>;
   @useResult
-  $Res call({@JsonKey(name: "name") String name, double lat, double lon});
+  $Res call({@JsonKey(name: 'name') String name, double lat, double lon});
 }
 
 /// @nodoc
@@ -80,7 +80,7 @@ abstract class _$$_CityModelCopyWith<$Res> implements $CityModelCopyWith<$Res> {
       __$$_CityModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: "name") String name, double lat, double lon});
+  $Res call({@JsonKey(name: 'name') String name, double lat, double lon});
 }
 
 /// @nodoc
@@ -119,7 +119,7 @@ class __$$_CityModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CityModel implements _CityModel {
   const _$_CityModel(
-      {@JsonKey(name: "name") required this.name,
+      {@JsonKey(name: 'name') required this.name,
       required this.lat,
       required this.lon});
 
@@ -127,7 +127,7 @@ class _$_CityModel implements _CityModel {
       _$$_CityModelFromJson(json);
 
   @override
-  @JsonKey(name: "name")
+  @JsonKey(name: 'name')
   final String name;
   @override
   final double lat;
@@ -169,7 +169,7 @@ class _$_CityModel implements _CityModel {
 
 abstract class _CityModel implements CityModel {
   const factory _CityModel(
-      {@JsonKey(name: "name") required final String name,
+      {@JsonKey(name: 'name') required final String name,
       required final double lat,
       required final double lon}) = _$_CityModel;
 
@@ -177,7 +177,7 @@ abstract class _CityModel implements CityModel {
       _$_CityModel.fromJson;
 
   @override
-  @JsonKey(name: "name")
+  @JsonKey(name: 'name')
   String get name;
   @override
   double get lat;

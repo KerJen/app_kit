@@ -1,16 +1,17 @@
-import "package:app_kit/app_bar.dart";
-import "package:app_kit/empty_widget.dart";
-import "package:auto_route/auto_route.dart";
-import "package:flutter/material.dart";
-import 'package:flutter/services.dart';
-import "package:flutter_bloc/flutter_bloc.dart";
-import "package:get_it/get_it.dart";
-import "../../core/ui/style/colors.dart";
-import "../../core/ui/style/text_styles.dart";
-import "package:app_kit/extensions.dart";
-import "../../domain/weather/entity/weather_entity.dart";
-import "../../domain/weather/usecase/get_weathers_usecase.dart";
-import "bloc/weather_bloc.dart";
+import 'package:app_kit/app_bar.dart';
+import 'package:app_kit/empty_widget.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import '../../core/di/di.dart';
+import '../../core/ui/style/colors.dart';
+import '../../core/ui/style/text_styles.dart';
+import 'package:app_kit/extensions.dart';
+import '../../domain/weather/entity/weather_entity.dart';
+import '../../domain/weather/usecase/get_weathers_usecase.dart';
+import 'bloc/weather_bloc.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -18,13 +19,13 @@ class WeatherScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => WeatherBloc(getWeathers: GetWeathersUseCase(GetIt.I.get()))
+      create: (context) => getIt.get<WeatherBloc>()
         ..add(
           const WeatherEvent.load(
             cities: [
-              "London",
-              "Moscow",
-              "Montevideo",
+              'London',
+              'Moscow',
+              'Montevideo',
             ],
           ),
         ),
@@ -36,7 +37,7 @@ class WeatherScreen extends StatelessWidget {
             bottom: 12,
           ),
           title: Text(
-            "Weather",
+            'app_title'.tr(),
             style: large(color: whiteColor),
           ),
           titleStyle: large(color: whiteColor),
@@ -46,15 +47,7 @@ class WeatherScreen extends StatelessWidget {
             Icons.info_outline_rounded,
           ),
           onTrailingTap: () async {
-           
-              const channel = MethodChannel("batteryChannel");
-
-              final t = await channel.invokeMethod("getBatteryPercentage");
-
-              print(t);
-            
-
-            // await context.router.pushNamed("/info");
+            await context.router.pushNamed('/info');
           },
         ),
         body: BlocBuilder<WeatherBloc, WeatherState>(
@@ -72,7 +65,7 @@ class WeatherScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "${state.message}\nTry again",
+                        '${state.message}\nTry again',
                         style: largeRegular(color: Colors.black54),
                         textAlign: TextAlign.center,
                       ),
@@ -82,8 +75,8 @@ class WeatherScreen extends StatelessWidget {
                           BlocProvider.of<WeatherBloc>(context).add(
                             const WeatherEvent.load(
                               cities: [
-                                "London",
-                                "Moscow",
+                                'London',
+                                'Moscow',
                               ],
                             ),
                           );
@@ -91,7 +84,7 @@ class WeatherScreen extends StatelessWidget {
                         color: accentColor,
                         splashColor: accentColor,
                         child: Text(
-                          "Reload",
+                          'Reload',
                           style: regular(color: whiteColor),
                         ),
                       ),
@@ -154,7 +147,7 @@ class WeatherScreen extends StatelessWidget {
                 ],
               ),
               Text(
-                "${weather.temp.round()} °C",
+                '${weather.temp.round()} °C',
                 style: custom(
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
@@ -174,11 +167,11 @@ class WeatherScreen extends StatelessWidget {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: "Max temp: ",
+                          text: 'Max temp: ',
                           style: medium(color: Colors.black26),
                         ),
                         TextSpan(
-                          text: "${weather.maxTemp.round()} °C",
+                          text: '${weather.maxTemp.round()} °C',
                           style: regular(),
                         ),
                       ],
@@ -188,11 +181,11 @@ class WeatherScreen extends StatelessWidget {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: "Min temp: ",
+                          text: 'Min temp: ',
                           style: medium(color: Colors.black26),
                         ),
                         TextSpan(
-                          text: "${weather.minTemp.round()} °C",
+                          text: '${weather.minTemp.round()} °C',
                           style: regular(),
                         ),
                       ],
@@ -204,11 +197,11 @@ class WeatherScreen extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: "Humidity: ",
+                      text: 'Humidity: ',
                       style: medium(color: Colors.black26),
                     ),
                     TextSpan(
-                      text: "${weather.humidity}%",
+                      text: '${weather.humidity}%',
                       style: regular(),
                     ),
                   ],

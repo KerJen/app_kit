@@ -1,13 +1,15 @@
-import "package:app_kit/arch/error/failure.dart";
-import "package:bloc/bloc.dart";
-import "package:freezed_annotation/freezed_annotation.dart";
-import "../../../domain/weather/entity/weather_entity.dart";
-import "../../../domain/weather/usecase/get_weathers_usecase.dart";
+import 'package:app_kit/arch/error/failure.dart';
+import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
+import '../../../domain/weather/entity/weather_entity.dart';
+import '../../../domain/weather/usecase/get_weathers_usecase.dart';
 
-part "weather_event.dart";
-part "weather_state.dart";
-part "weather_bloc.freezed.dart";
+part 'weather_event.dart';
+part 'weather_state.dart';
+part 'weather_bloc.freezed.dart';
 
+@injectable
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   final GetWeathersUseCase getWeathers;
 
@@ -30,20 +32,20 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       result.fold(
         (failure) {
           if (failure is WrongCoordsFailure) {
-            return const WeatherState.failure(message: "wrong_coords_error");
+            return const WeatherState.failure(message: 'wrong_coords_error');
           } else if (failure is CityNotFoundFailure) {
-            return const WeatherState.failure(message: "city_not_found_error");
+            return const WeatherState.failure(message: 'city_not_found_error');
           }
 
           if (failure is ConnectionFailure) {
-            return const WeatherState.failure(message: "no_internet_error");
+            return const WeatherState.failure(message: 'no_internet_error');
           } else if (failure is UnauthorizedFailure) {
-            return const WeatherState.failure(message: "unauthorized_error");
+            return const WeatherState.failure(message: 'unauthorized_error');
           } else if (failure is UnknownFailure) {
-            return const WeatherState.failure(message: "unknown_error");
+            return const WeatherState.failure(message: 'unknown_error');
           }
 
-          throw UnsupportedError("Unsupported failure: $failure");
+          throw UnsupportedError('Unsupported failure: $failure');
         },
         (weathers) => WeatherState.result(weathers: weathers),
       ),

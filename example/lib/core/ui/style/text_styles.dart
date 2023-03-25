@@ -1,11 +1,11 @@
-import "package:flutter/material.dart";
-import "colors.dart";
+import 'package:flutter/material.dart';
+import 'colors.dart';
 
 TextStyle custom({
   required double fontSize,
   required FontWeight fontWeight,
   Color color = blackColor,
-  String fontId = "Roboto",
+  String fontId = 'Roboto',
   double? height,
 }) {
   return TextStyle(
@@ -19,7 +19,7 @@ TextStyle custom({
 
 TextStyle regular({
   Color color = blackColor,
-  String fontId = "Roboto",
+  String fontId = 'Roboto',
   double? height,
 }) {
   return custom(
@@ -33,7 +33,7 @@ TextStyle regular({
 
 TextStyle medium({
   Color color = blackColor,
-  String fontId = "Roboto",
+  String fontId = 'Roboto',
   double? height,
 }) {
   return custom(
@@ -47,7 +47,7 @@ TextStyle medium({
 
 TextStyle largeRegular({
   Color color = blackColor,
-  String fontId = "Roboto",
+  String fontId = 'Roboto',
   double? height,
 }) {
   return custom(
@@ -61,7 +61,7 @@ TextStyle largeRegular({
 
 TextStyle large({
   Color color = blackColor,
-  String fontId = "Roboto",
+  String fontId = 'Roboto',
   double? height,
 }) {
   return custom(

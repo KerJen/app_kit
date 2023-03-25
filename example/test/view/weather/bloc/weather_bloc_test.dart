@@ -1,14 +1,14 @@
-import "package:app_kit/arch/error/failure.dart";
-import "package:dartz/dartz.dart";
-import "package:flutter_test/flutter_test.dart";
-import "package:mockito/mockito.dart";
-import "package:tech_stack/domain/weather/entity/weather_entity.dart";
-import "package:tech_stack/domain/weather/usecase/get_weathers_usecase.dart";
-import "package:tech_stack/view/weather/bloc/weather_bloc.dart";
+import 'package:app_kit/arch/error/failure.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
+import 'package:tech_stack/domain/weather/entity/weather_entity.dart';
+import 'package:tech_stack/domain/weather/usecase/get_weathers_usecase.dart';
+import 'package:tech_stack/view/weather/bloc/weather_bloc.dart';
 
-import "../../../data/weather/model/city_model_test.dart";
-import "../../../domain/weather/usecase/get_cities_weather_usecase_test.dart";
-import "../../../mocks/usecase/usecase_mocks.mocks.dart";
+import '../../../data/weather/model/city_model_test.dart';
+import '../../../domain/weather/usecase/get_cities_weather_usecase_test.dart';
+import '../../../mocks/usecase/usecase_mocks.mocks.dart';
 
 void main() {
   final cities = [testLondonEntity.cityName, testMoscowEntity.cityName];
@@ -22,13 +22,13 @@ void main() {
     bloc = WeatherBloc(getWeathers: mockUsecase);
   });
 
-  test("initial state should be WeatherLoading", () async {
+  test('initial state should be WeatherLoading', () async {
     //Assert
     expect(bloc.state, const WeatherState.loading());
   });
 
-  group("GetWeathersUseCase", () {
-    test("should return list of WeatherEntity", () async {
+  group('GetWeathersUseCase', () {
+    test('should return list of WeatherEntity', () async {
       //Arrange
       when(mockUsecase(cities)).thenAnswer((_) async => Right(entities));
 
@@ -48,16 +48,16 @@ void main() {
     });
 
     final failureTests = {
-      ConnectionFailure(): "no_internet_error",
-      UnauthorizedFailure(): "unauthorized_error",
-      UnknownFailure(): "unknown_error",
-      WrongCoordsFailure(lat: testLondonModel.lat, lon: testLondonModel.lon): "wrong_coords_error",
-      CityNotFoundFailure(testLondonModel.name): "city_not_found_error",
+      ConnectionFailure(): 'no_internet_error',
+      UnauthorizedFailure(): 'unauthorized_error',
+      UnknownFailure(): 'unknown_error',
+      WrongCoordsFailure(lat: testLondonModel.lat, lon: testLondonModel.lon): 'wrong_coords_error',
+      CityNotFoundFailure(testLondonModel.name): 'city_not_found_error',
     };
 
-    group("Common failures", () {
+    group('Common failures', () {
       failureTests.forEach((Failure key, String message) {
-        test("should return $message if $key occured", () async {
+        test('should return $message if $key occured', () async {
           //Arrange
           when(mockUsecase(cities)).thenAnswer((_) async => Left(key));
 

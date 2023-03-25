@@ -13,7 +13,7 @@ linter:
     # Important
     require_trailing_commas: true
     prefer_relative_imports: true
-    prefer_double_quotes: true
+    prefer_single_quotes: true
 
     # Recommendations
     cancel_subscriptions: true

@@ -1,12 +1,12 @@
-import "package:freezed_annotation/freezed_annotation.dart";
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-part "city.freezed.dart";
-part "city.g.dart";
+part 'city.freezed.dart';
+part 'city.g.dart';
 
 @freezed
 class CityModel with _$CityModel {
   const factory CityModel({
-    @JsonKey(name: "name") required String name,
+    @JsonKey(name: 'name') required String name,
     required double lat,
     required double lon,
   }) = _CityModel;

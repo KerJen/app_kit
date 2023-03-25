@@ -29,6 +29,9 @@ dependencies:
   bloc: ^8.1.0
   flutter_bloc: ^8.1.1
   http_status_code: ^0.0.2
+  easy_localization: ^3.0.1
+  injectable: ^2.1.0
+ 
 
 dev_dependencies:
   flutter_test:
@@ -38,7 +41,12 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner: ^2.3.3
   json_serializable: ^6.5.4
+  injectable_generator: ^2.1.3
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/i18n/
+    
 

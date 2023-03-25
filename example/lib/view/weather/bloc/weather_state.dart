@@ -1,4 +1,4 @@
-part of "weather_bloc.dart";
+part of 'weather_bloc.dart';
 
 @freezed
 class WeatherState with _$WeatherState {
