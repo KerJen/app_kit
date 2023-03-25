@@ -46,7 +46,7 @@ void main() {
     final result = await useCase(testCities);
 
     //Assert
-    expect(useCase, isA<UseCase>());
+    expect(useCase, isA<FutureUseCase>());
     expect(result, const Right([testLondonEntity, testMoscowEntity]));
     verify(mockRepository.getWeathers(testCities));
     verifyNoMoreInteractions(mockRepository);

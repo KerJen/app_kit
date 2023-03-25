@@ -7,7 +7,7 @@ import '../repository/weather_repository.dart';
 import '../entity/weather_entity.dart';
 
 @injectable
-class GetWeathersUseCase extends UseCase<List<WeatherEntity>, List<String>> {
+class GetWeathersUseCase extends FutureUseCase<List<WeatherEntity>, List<String>> {
   final WeatherRepository repository;
 
   GetWeathersUseCase(this.repository);
